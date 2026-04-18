@@ -7,6 +7,7 @@ jobs:
       - name: Greet the user
         run: echo "Hello, ${{ github.actor }}!"
       - name: Goodbye message
-        run: echo "Goodbye, ${{ github.actor}}!"
-      - name: Print Git object
-        run: echo "Git object:${{ github.sha }}"
+        run: echo "Goodbye, ${{ github.name }}!"
+      - name: Print GitHub context
+        run: |
+          echo "${{toJson(github)}}"
