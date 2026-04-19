@@ -11,14 +11,12 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 22
-      - name: print node version
-        run: node --version
       - name: install dependencies
         run: npm install
       - name: run tests
         run: npm run test
-      - name: completed job
-        run: echo "Job completed successfully"  
+      - name: test job completed
+        run: echo "Test job completed successfully"  
   build:
     needs: test
     runs-on: ubuntu-latest
@@ -29,7 +27,14 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 22
+      - name: cache dependencies
+        uses: actions/cache@v5
+        id: cache
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
       - name: install dependencies
+        if: steps.cache.outputs.cache-hit != 'true'
         run: npm install
       - name: build the app
         run: npm run build
