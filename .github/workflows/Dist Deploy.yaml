@@ -1,5 +1,9 @@
 name: Deploy react app to GitHub Pages
 on: [push,workflow_dispatch]
+  branches: [main,'feature/**']
+  paths-ignore: 
+    - 'README.md'
+    - '.github/workflows/**'
   
 jobs:
   test:
