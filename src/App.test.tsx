@@ -16,6 +16,6 @@ describe("App", () => {
     expect(button).toBeInTheDocument();
 
     await userEvent.click(button);
-    expect(button).not.toHaveTextContent("Count is 1");
+    expect(button).toHaveTextContent("Count is 1");
   });
 });

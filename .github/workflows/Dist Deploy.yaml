@@ -19,5 +19,18 @@ jobs:
         run: npm run test
       - name: completed job
         run: echo "Job completed successfully"  
-     
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
+      - name: setup node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: install dependencies
+        run: npm install
+      - name: build the app
+        run: npm run build
+    
 
