@@ -38,10 +38,26 @@ jobs:
         run: npm install
       - name: build the app
         run: npm run build
+      - name: upload to artifacts
+        uses: actions/upload-artifact@v6
+        with:
+          name: dist-files
+          path: dist
   deploy:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - name: Deploy test
-        run: echo "Deploying to GitHub Pages"
+      - name: download artifacts
+        uses: actions/download-artifact@v6
+        with:
+          name: dist
+          path: dist
+      - name : deploy dist  
+        run: |
+          echo "deploying below files"  
+          ls dist 
+          echo "deploying completed"
+
+
+      
           
