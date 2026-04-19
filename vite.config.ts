@@ -8,8 +8,10 @@ export default defineConfig({
     globals: true,
     environment: "jsdom",
     setupFiles: ["./vitest.setup.js"],
-    deps: {
-      inline: ["@csstools/css-calc", "@asamuzakjp/css-color"]
+    server: {
+      deps: {
+        inline: ["@csstools/css-calc", "@asamuzakjp/css-color"]
+      }
     },
   },
   ssr: {
