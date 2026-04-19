@@ -50,7 +50,7 @@ jobs:
       - name: download artifacts
         uses: actions/download-artifact@v6
         with:
-          name: dist
+          name: dist-files
           path: dist
       - name : deploy dist  
         run: |
