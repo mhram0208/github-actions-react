@@ -2,7 +2,7 @@ name: Deploy React to github pages
 on:
     push:
         branches:
-            - main
+            - master
             - 'feature/**'
         paths-ignore:
             - '.github/workflows/*'  
