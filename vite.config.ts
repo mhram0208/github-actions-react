@@ -17,5 +17,5 @@ export default defineConfig({
   ssr: {
     noExternal: ["@csstools/css-calc", "@asamuzakjp/css-color"],
   },
-  base: "/GITHUB-ACTIONS/",
+  base: "/github-actions-react/",
 });
